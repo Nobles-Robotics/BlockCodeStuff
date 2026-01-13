@@ -1,0 +1,212 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+<block type="procedures_defnoreturn" id="WtpyD@tEu+EoY=P9iY,D" deletable="false" x="25" y="169">
+<field name="NAME">runOpMode</field>
+<comment pinned="true" h="141" w="577">This sample contains the bare minimum Blocks for any regular OpMode. The 3 blue
+Comment Blocks show where to place Initialization code (runs once, after touching the
+DS INIT button, and before touching the DS Start arrow), Run code (runs once, after
+touching Start), and Loop code (runs repeatedly while the OpMode is active, namely not
+Stopped).</comment>
+<data>{"commentPositionLeft":-20,"commentPositionTop":-169}</data>
+<statement name="STACK">
+<block type="comment" id="Lc#BFtj*NTB48YL;eBl.">
+<field name="COMMENT">Put initialization blocks here.</field>
+<next>
+<block type="linearOpMode_waitForStart" id=":`$wN_ci`O;o6P0~.(+g">
+<next>
+<block type="controls_if" id="}Q?5mbxSO8Di;i!__6[y">
+<value name="IF0">
+<block type="linearOpMode_opModeIsActive" id=")o%YFX/#9kvv^sgXr4~5"/>
+</value>
+<statement name="DO0">
+<block type="servo_setProperty_Direction" id="jOf`_H[#xBzuE2/B{Uty">
+<field name="IDENTIFIER">axon2AsServo</field>
+<field name="PROP">Direction</field>
+<data>{"IDENTIFIER":"axon2"}</data>
+<value name="VALUE">
+<shadow type="servo_typedEnum_direction" id="M;p}nS3/2rlQ2#O^FMsI">
+<field name="DIRECTION">REVERSE</field>
+</shadow>
+</value>
+<next>
+<block type="comment" id="(rU-p_T_/B|vExcs}liL">
+<field name="COMMENT">Put run blocks here.</field>
+<next>
+<block type="controls_whileUntil" id="^0Kagy/e+Ea{rbZPv2G6">
+<field name="MODE">WHILE</field>
+<value name="BOOL">
+<block type="linearOpMode_opModeIsActive" id="e)cr{!2VIET83s,JWC.="/>
+</value>
+<statement name="DO">
+<block type="controls_if" id="29(tsBX)Hqgllh)@1vz4">
+<value name="IF0">
+<block type="gamepad_getProperty_Boolean" id="OE@jYay?efM@BO)C^eY+">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">AWasPressed</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<statement name="DO0">
+<block type="servo_setProperty_Number" id="qlCH(r9=aaq7jc-WPQXo">
+<field name="IDENTIFIER">servo0AsServo</field>
+<field name="PROP">Position</field>
+<data>{"IDENTIFIER":"servo0"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="5uu]neC9iYEe1Ba~MFn{">
+<field name="NUM">0</field>
+</shadow>
+</value>
+</block>
+</statement>
+<next>
+<block type="controls_if" id="k1TJEYAneE~FKX*u1Q18">
+<value name="IF0">
+<block type="gamepad_getProperty_Boolean" id="D=Ln:AVv6hZ|58.a~XFE">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">BWasPressed</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<statement name="DO0">
+<block type="servo_setProperty_Number" id="]@7pV3x**oA5};Vyix/L">
+<field name="IDENTIFIER">servo0AsServo</field>
+<field name="PROP">Position</field>
+<data>{"IDENTIFIER":"servo0"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="|V~bDJ!m5CXuMy..0c.c">
+<field name="NUM">1</field>
+</shadow>
+</value>
+</block>
+</statement>
+<next>
+<block type="controls_if" id="Vh.O}_{Jq0:n4EM/%Y=u">
+<value name="IF0">
+<block type="gamepad_getProperty_Boolean" id=")qdDjE@9N|PEj`nS37~h">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">DpadDownWasPressed</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<statement name="DO0">
+<block type="servo_setProperty_Number" id="K;rMbrx.K=xH)qE=-Y9Z">
+<field name="IDENTIFIER">servo0AsServo</field>
+<field name="PROP">Position</field>
+<data>{"IDENTIFIER":"servo0"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="@o};LgBs??:gAx.mW+PN">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_arithmetic" id="vTV`!N#O/Gyz8R}Kxn#a">
+<field name="OP">MINUS</field>
+<value name="A">
+<shadow type="math_number" id="$k6ha|OXbvFy%1H26mC:">
+<field name="NUM">1</field>
+</shadow>
+<block type="servo_getProperty_Number" id="@Q/6Zoi[7NlT%;j/j@Iq">
+<field name="IDENTIFIER">servo0AsServo</field>
+<field name="PROP">Position</field>
+<data>{"IDENTIFIER":"servo0"}</data>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number" id="o}PLo?j+4j;7]k+:|b8e">
+<field name="NUM">0.05</field>
+</shadow>
+</value>
+</block>
+</value>
+</block>
+</statement>
+<next>
+<block type="controls_if" id=",yaO6N0wpj}k6x)EbtTF">
+<value name="IF0">
+<block type="gamepad_getProperty_Boolean" id="fJLcl]u*S!IC;k(jIrDh">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">DpadUpWasPressed</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<statement name="DO0">
+<block type="servo_setProperty_Number" id="kcelE~cu??_H%P]78?/Z">
+<field name="IDENTIFIER">servo0AsServo</field>
+<field name="PROP">Position</field>
+<data>{"IDENTIFIER":"servo0"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="6ZV}2w%n0/%I=jEgNdbX">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_arithmetic" id="zt3`waEYf*r];!r6x;-M">
+<field name="OP">ADD</field>
+<value name="A">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="servo_getProperty_Number" id="tGs5.0KBJ[%F+lT:OqA3">
+<field name="IDENTIFIER">servo0AsServo</field>
+<field name="PROP">Position</field>
+<data>{"IDENTIFIER":"servo0"}</data>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number" id="y$wNCg9R:i,WH;05#;.v">
+<field name="NUM">0.05</field>
+</shadow>
+</value>
+</block>
+</value>
+</block>
+</statement>
+<next>
+<block type="comment" id="Jh/;L$n@JuX8AQJDFCul">
+<field name="COMMENT">Put loop blocks here.</field>
+<next>
+<block type="telemetry_addNumericData_Number" id="M{L+4R-YHYed+Bq)+j?i">
+<value name="KEY">
+<shadow type="text" id="+ee0ORFJUYW~f-dV9eCp">
+<field name="TEXT">servo0 position</field>
+</shadow>
+</value>
+<value name="NUMBER">
+<shadow type="math_number" id="`UYHUXiyvdlWcKp0O;yy">
+<field name="NUM">123</field>
+</shadow>
+<block type="servo_getProperty_Number" id="@#lyE`dOK/p.e2A|L|=n">
+<field name="IDENTIFIER">servo0AsServo</field>
+<field name="PROP">Position</field>
+<data>{"IDENTIFIER":"servo0"}</data>
+</block>
+</value>
+<next>
+<block type="telemetry_update" id="exvivmft-pX$n!1,8Ea$"/>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</xml>
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<Extra>
+<OpModeMeta flavor="TELEOP" group="" autoTransition="" />
+<Enabled value="true" />
+</Extra>
